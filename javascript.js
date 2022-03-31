@@ -16,12 +16,31 @@ function computerPlay(){
 }
 
 function singleRound(playerSelection, computerPlay){
-    let human;
+    let human = playerSelection.toLowerCase();
     let computer = computerPlay();
-    console.log();
-    if (human === computer){
-        return true;
-    } else {
-        return false;
+    console.log("You chose: " + human + ", computer chose: " + computer);
+    switch (true){
+        case (human === computer):
+            return "Tie game!";
+            break;
+        case (human === "rock" && computer === "paper"):
+            return "You lose!";
+            break;
+        case (human === "rock" && computer === "scissors"):
+            return "You win!";
+            break;
+        case (human === "paper" && computer === "rock"):
+            return "You win!";
+            break;
+        case (human === "paper" && computer === "scissors"):
+            return "You lose!";
+            break;
+        case (human === "scissors" && computer === "paper"):
+            return "You win!";
+            break;
+        case (human === "scissors" && computer === "rock"):
+            return "You lose!";
+            break;
+        default: break;
     }
 }
