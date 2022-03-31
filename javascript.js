@@ -41,6 +41,50 @@ function singleRound(playerSelection, computerPlay){
         case (human === "scissors" && computer === "rock"):
             return "You lose!";
             break;
-        default: break;
+        default: 
+            alert("Please enter rock, paper or scissors");
+            break;
+    }
+}
+
+function game(){
+    alert("You are about to play Rochambeau's Revenge.");
+    let computerScore = 0;
+    let humanScore = 0;
+    for(let i = 0; i < 5; i++){
+        let playerSelection = prompt("Rock, paper or scissors?");
+        let roundResult = singleRound(playerSelection, computerPlay);
+        switch(roundResult){
+            case "Tie game!":
+                alert(`That one was a tie! You: ` + humanScore 
+                + `; Computer: ` + computerScore);
+                break;
+            case "You win!": 
+                humanScore += 1;
+                alert(`You won that one! You: ` + humanScore
+                + `; Computer: ` + computerScore);
+                break;
+            case "You lose!":
+                computerScore += 1;
+                alert(`Dang it! That was a loss. You: ` + humanScore
+                + `; Computer: ` + computerScore);
+                break;
+            default: 
+                alert("That round was botched.  Time for a re-do!");
+                i -= 1;
+                break;
+        }
+    
+    }
+    switch(true){
+        case (humanScore === computerScore):
+            alert("In the end, it was a tie.");
+            break;
+        case (humanScore > computerScore):
+            alert("You are the victor!");
+            break;
+        case (humanScore < computerScore):
+            alert("Dang it, better luck next time.");
+            break;
     }
 }
