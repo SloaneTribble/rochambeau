@@ -48,7 +48,7 @@ function singleRound(playerSelection, computerPlay){
 }
 
 function game(){
-    alert("You are about to play Rochambeau's Revenge.");
+    alert("You are about to play Rochambeau's Revenge, best of five.");
     let computerScore = 0;
     let humanScore = 0;
     for(let i = 0; i < 5; i++){
@@ -88,3 +88,5 @@ function game(){
             break;
     }
 }
+
+game();
