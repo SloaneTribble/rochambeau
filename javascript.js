@@ -20,38 +20,69 @@ function singleRound(playerSelection){
     let result = "";
     switch (true){
         case (human === computer):
-            result =  "Tie game!";
+            result =  "tie";
             break;
         case (human === "rock" && computer === "paper"):
-            result = "You lose!";
+            result = "lose";
             break;
         case (human === "rock" && computer === "scissors"):
-            result = "You win!";
+            result = "win";
             break;
         case (human === "paper" && computer === "rock"):
-            result = "You win!";
+            result = "win";
             break;
         case (human === "paper" && computer === "scissors"):
-            result = "You lose!";
+            result = "lose";
             break;
         case (human === "scissors" && computer === "paper"):
-            result = "You win!";
+            result = "win";
             break;
         case (human === "scissors" && computer === "rock"):
-            result = "You lose!";
+            result = "lose";
             break;
         default: 
             alert("Please enter rock, paper or scissors");
             break;
     }
-    return "You chose: " + human + ", computer chose: " + computer + ". " + result;
+    return result;
 }
 
+function resultMaster(result){
+    switch(result){
+        case "tie": break;
+
+        case "win": yourScore += 1;
+        break;
+
+        case "lose": rochambeauScore += 1;
+        break;  
+    }
+}
+
+const btnContainer = document.querySelector('.btn-container');
+btnContainer.classList.add('rock','paper','scissors');
 const buttons = document.querySelectorAll('button');
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         let playerChoice = button.className;
-        alert(singleRound(playerChoice));
+        let result = singleRound(playerChoice);
+        
     });
 });
+
+
+// const results = document.querySelector('.results');
+
+// const you = document.querySelector('div');
+// results.classList.add('you');
+// let yourScore = 0;
+
+// you.textContent = "You: " + yourScore;
+
+// results.appendChild(you);
+
+// const rochambeau = document.querySelector('.rochambeau');
+// let rochambeauScore = 0;
+
+// rochambeauScore.textContent = "Rochambeau: " + rochambeauScore;
