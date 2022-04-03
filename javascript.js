@@ -52,37 +52,53 @@ function resultMaster(result){
         case "tie": break;
 
         case "win": yourScore += 1;
+        you.textContent = `You: ${yourScore}`;
         break;
 
         case "lose": rochambeauScore += 1;
+        rochambeau.textContent = `Rochambeau: ${rochambeauScore}`;
         break;  
     }
 }
 
-const btnContainer = document.querySelector('.btn-container');
-btnContainer.classList.add('rock','paper','scissors');
 const buttons = document.querySelectorAll('button');
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         let playerChoice = button.className;
         let result = singleRound(playerChoice);
+        resultMaster(result);
+
+        switch(true){
+            case (rochambeauScore === yourScore === 5):
+                alert("IT'S A TIE!!!");
+                break;
+
+            case (rochambeauScore >= 5) : 
+                alert("LOSER!");
+                break;
+
+            case (yourScore >= 5) : 
+                alert("YOU WIN!");
+                break;
+        }
         
     });
 });
 
+const results = document.querySelector('#results');
 
-// const results = document.querySelector('.results');
+const you = document.createElement('div');
+results.classList.add('you');
+let yourScore = 0;
+you.textContent = `You: ${yourScore}`;
 
-// const you = document.querySelector('div');
-// results.classList.add('you');
-// let yourScore = 0;
+results.appendChild(you);
 
-// you.textContent = "You: " + yourScore;
+const rochambeau = document.createElement('div');
+results.classList.add('rochambeau');
+let rochambeauScore = 0;
+rochambeau.textContent = `Rochambeau: ${rochambeauScore}`;
 
-// results.appendChild(you);
+results.appendChild(rochambeau);
 
-// const rochambeau = document.querySelector('.rochambeau');
-// let rochambeauScore = 0;
-
-// rochambeauScore.textContent = "Rochambeau: " + rochambeauScore;
