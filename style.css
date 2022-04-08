@@ -1,0 +1,42 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex: 1 1 0%;
+
+}
+
+.header{
+    font-size:32px;
+    font-style:oblique;
+    margin: 32px;
+    display: flex;
+    flex: 1 1 0%;
+    justify-content: center;
+
+}
+
+.btn-container{
+    display: flex;
+    max-width: 80vw;
+    flex: 1 1 0%;
+    flex-direction: row;
+    justify-self: center;
+    align-self: center;
+}
+
+button {
+    background-color: papayawhip;
+    flex: 1;
+}
+
+#results{
+    padding: 2.5%;
+}
+
+.pic{
+    flex: 1;
+    max-height: auto;
+    max-width: 100%;
+}

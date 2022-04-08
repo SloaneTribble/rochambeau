@@ -72,21 +72,30 @@ buttons.forEach((button) => {
         switch(true){
             case (rochambeauScore === yourScore === 5):
                 alert("IT'S A TIE!!!");
+                reset()
                 break;
 
             case (rochambeauScore >= 5) : 
                 alert("LOSER!");
+                reset()
                 break;
 
             case (yourScore >= 5) : 
                 alert("YOU WIN!");
+                reset()
                 break;
         }
         
     });
 });
 
+
 const results = document.querySelector('#results');
+
+results.style.display = "flex";
+results.style.flexDirection = "column";
+results.style.alignItems = "center";
+results.style.justifyContent = "space-between";
 
 const you = document.createElement('div');
 results.classList.add('you');
@@ -100,5 +109,13 @@ results.classList.add('rochambeau');
 let rochambeauScore = 0;
 rochambeau.textContent = `Rochambeau: ${rochambeauScore}`;
 
+
 results.appendChild(rochambeau);
 
+function reset(){
+    yourScore = 0;
+    rochambeauScore = 0;
+    rochambeau.textContent = `Rochambeau: ${rochambeauScore}`;
+    you.textContent = `You: ${yourScore}`;
+    return;
+}
